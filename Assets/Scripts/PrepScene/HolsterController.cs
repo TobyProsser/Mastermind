@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class HolsterController : MonoBehaviour
 {
-    GameObject curCard;
+    [HideInInspector]
+    public GameObject curCard;
     public Transform centerLocation;
     public float speed;
     float finalSize = .056f;

@@ -16,7 +16,6 @@ public class CardCounter : MonoBehaviour
 
     public void UpdateText(){
         DeckSingleton singleton = DeckSingleton.Instance;
-        print("print from CardCounter: " + singleton.cardObjects.Count.ToString());
         singleton.FindTypes();
         attackText.text = singleton.attackCardsAMT.ToString();
         blockText.text = singleton.blockCardsaMT.ToString();

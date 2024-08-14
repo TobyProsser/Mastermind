@@ -28,10 +28,15 @@ public class CardProvider : MonoBehaviour
     }
 
     public void SpawnCard(){
-        GameObject curCard = Instantiate(baseCard, topPos.position, topPos.rotation);
-        curCard.GetComponent<SpriteRenderer>().sprite = deckSingleton.cardObjects[currentCardNum].cardIcon;
-        TempCardTracker tempCardTracker = curCard.AddComponent<TempCardTracker>();
-        tempCardTracker.cardProvider = this;
-        currentCardNum++;
+        if(currentCardNum < deckSingleton.cardObjects.Count){
+            GameObject curCard = Instantiate(baseCard, topPos.position, topPos.rotation);
+            curCard.GetComponent<SpriteRenderer>().sprite = deckSingleton.cardObjects[currentCardNum].cardIcon;
+            curCard.GetComponent<CardController>().thisCardsObject = deckSingleton.cardObjects[currentCardNum];
+            print("currentCardNumber: " + currentCardNum + " Deck Length: " + deckSingleton.cardObjects.Count);
+            TempCardTracker tempCardTracker = curCard.AddComponent<TempCardTracker>();
+            tempCardTracker.cardProvider = this;
+            currentCardNum++;
+        }
+        
     }
 }

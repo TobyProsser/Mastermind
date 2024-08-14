@@ -7,6 +7,8 @@ using TMPro;
 
 public class BrawlController : MonoBehaviour
 {
+    public GameObject playerCard;
+    public GameObject enemyCard;
     public List<CardObject> player1Moves;
     public Player player1;
     public List<CardObject> player2Moves;
@@ -24,14 +26,15 @@ public class BrawlController : MonoBehaviour
         player1 = new Player();
         player2 = new Player();
 
-        player1Moves = StaticPlayerData.playerCards;
-        player2Moves = StaticPlayerData.playerCards;
+        player1Moves = DeckSingleton.Instance.currentHand;
+        player2Moves = DeckSingleton.Instance.currentHand;
         Step();
     }
 
     void Step(){
         CardObject curCard = player1Moves[stepNum];
-        player1Text.text = curCard.cardName;
+        //player1Text.text = curCard.cardName;
+        playerCard.GetComponent<SpriteRenderer> ().sprite = curCard.cardIcon;
 
         string type1 = curCard.cardType.ToString();
         string subType1 = curCard.subType.ToString();
@@ -39,7 +42,9 @@ public class BrawlController : MonoBehaviour
         int time1 = curCard.time;
 
         string type2 = player2Moves[stepNum].cardType;
-        player2Text.text = curCard.cardName;
+        //player2Text.text = curCard.cardName;
+        enemyCard.GetComponent<SpriteRenderer> ().sprite = curCard.cardIcon;
+
         string subType2 = player2Moves[stepNum].subType;
         float amount2 = player2Moves[stepNum].typeAmount;
         int time2 = player2Moves[stepNum].time;
@@ -85,7 +90,7 @@ public class BrawlController : MonoBehaviour
         switch (defendingType){
             case "Block": break;  //IF defending player also blocked do nothing
             case "Dodge": break;    //IF defending player dodged do nothing
-            case "Damage": {
+            case "Attack": {
                 //If the attacker blocks faster than opponent can block then reduce damage
                 if(attackingTime <= defendingTime)   //Time to Block(attacker is blocking) vs Time to attack(defender is trying to deal damage)
                 {
@@ -126,7 +131,7 @@ public class BrawlController : MonoBehaviour
                 break;
                 }
             case "Dodge": break;    //IF defending player dodged deal no damage
-            case "Damage": {
+            case "Attack": {
                 //If the defending player is also attacking then the attacker also takes damage as they are not blocking or dodging.
                 attackingPlayer.health -= defendingAmount;
                 //but they still take all the damage themselves

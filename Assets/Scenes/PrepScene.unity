@@ -354,6 +354,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1449962172863340753, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
   m_PrefabInstance: {fileID: 273211471}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &273211473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2157820934104093821, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+  m_PrefabInstance: {fileID: 273211471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &278388381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -576,6 +581,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1449962172863340753, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
   m_PrefabInstance: {fileID: 334070437}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &334070439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2157820934104093821, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+  m_PrefabInstance: {fileID: 334070437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &344971437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2448089273360375348, guid: 2a8092bb16325dc47b282b0fd8a1cb62, type: 3}
@@ -591,6 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 508617172}
   - component: {fileID: 508617173}
+  - component: {fileID: 508617174}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -628,6 +639,24 @@ MonoBehaviour:
   topPos: {fileID: 757515319}
   bottomPos: {fileID: 278388382}
   baseCard: {fileID: 3894119155205405655, guid: 98bf645e0a491cd479a9cd05faf25dc0, type: 3}
+--- !u!114 &508617174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508617171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca32d0561a8aae94783a030e09b9c43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holsters:
+  - {fileID: 7099068861173055505}
+  - {fileID: 601414024}
+  - {fileID: 334070439}
+  - {fileID: 273211473}
+  - {fileID: 1679577957}
 --- !u!1 &509795757
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +796,11 @@ PrefabInstance:
 --- !u!4 &601414023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1449962172863340753, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+  m_PrefabInstance: {fileID: 601414022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &601414024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2157820934104093821, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
   m_PrefabInstance: {fileID: 601414022}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &757515318 stripped
@@ -1602,6 +1636,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1449962172863340753, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
   m_PrefabInstance: {fileID: 1679577955}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1679577957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2157820934104093821, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+  m_PrefabInstance: {fileID: 1679577955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892452735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,9 +1724,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectorController, Assembly-CSharp
-        m_MethodName: NextButton
+      - m_Target: {fileID: 508617174}
+        m_TargetAssemblyTypeName: HandCollection, Assembly-CSharp
+        m_MethodName: BrawlButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1941,6 +1980,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31c05ea6fdeed24ba3a9087f0390e1a, type: 3}
+--- !u!1 &7099068861173055505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2999053461936305300, guid: f31c05ea6fdeed24ba3a9087f0390e1a, type: 3}
+  m_PrefabInstance: {fileID: 7099068861173055504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7695876855892102471
 PrefabInstance:
   m_ObjectHideFlags: 0

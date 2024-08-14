@@ -5,6 +5,8 @@ using TMPro;
 
 public class CardController : MonoBehaviour
 {
+    public CardObject thisCardsObject;
+
     [SerializeField]
     public string cardName;
     public TextMeshProUGUI text;

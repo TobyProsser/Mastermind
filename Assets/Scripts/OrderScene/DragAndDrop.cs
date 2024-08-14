@@ -72,7 +72,10 @@ public class DragAndDrop : MonoBehaviour
     {
         if (holster && other.gameObject == holster)
             {
-                GameObject holstersCard = holster.GetComponent<HolsterScript>().currentCard;
+                HolsterScript holsterScript = holster.GetComponent<HolsterScript>();
+                if(holsterScript != null)
+                {
+                    GameObject holstersCard = holster.GetComponent<HolsterScript>().currentCard;
                 if(holstersCard && holstersCard == this.gameObject)
                 {
                     
@@ -80,6 +83,8 @@ public class DragAndDrop : MonoBehaviour
                 holster.GetComponent<HolsterScript>().unlockCard();
                 holster = null;
                 }
+                }
+                
             }
             else if(other.gameObject.tag == "Mover"){
             rb.simulated = true;
