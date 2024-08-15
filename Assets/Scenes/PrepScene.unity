@@ -788,6 +788,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalfHolster
       objectReference: {fileID: 0}
+    - target: {fileID: 4477885365241161391, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763548101501326972, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790531288785627143, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

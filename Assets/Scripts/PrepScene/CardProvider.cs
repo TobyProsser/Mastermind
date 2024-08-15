@@ -32,7 +32,7 @@ public class CardProvider : MonoBehaviour
             GameObject curCard = Instantiate(baseCard, topPos.position, topPos.rotation);
             curCard.GetComponent<SpriteRenderer>().sprite = deckSingleton.cardObjects[currentCardNum].cardIcon;
             curCard.GetComponent<CardController>().thisCardsObject = deckSingleton.cardObjects[currentCardNum];
-            print("currentCardNumber: " + currentCardNum + " Deck Length: " + deckSingleton.cardObjects.Count);
+            curCard.GetComponent<CardController>().time= deckSingleton.cardObjects[currentCardNum].time;
             TempCardTracker tempCardTracker = curCard.AddComponent<TempCardTracker>();
             tempCardTracker.cardProvider = this;
             currentCardNum++;

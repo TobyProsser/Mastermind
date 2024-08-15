@@ -27,7 +27,7 @@ public class BrawlController : MonoBehaviour
         player2 = new Player();
 
         player1Moves = DeckSingleton.Instance.currentHand;
-        player2Moves = DeckSingleton.Instance.currentHand;
+        player2Moves = DeckSingleton.Instance.enemyHand;
         Step();
     }
 
@@ -71,8 +71,9 @@ public class BrawlController : MonoBehaviour
 
     void DetectOutcome(Player attackingPlayer, string attackingType, string attackingSubType, int attackingTime, float attackingAmount, Player defendingPlayer, string defendingType,string defendingSubType, float defendingAmount, int defendingTime)
     {
+        print("Attacking Type: " + attackingType + "DefendingType " + defendingType);
         switch (attackingType){
-            case "Damage": {
+            case "Attack": {
                 DealDamage(attackingPlayer, defendingPlayer, attackingAmount, attackingTime, defendingType, defendingAmount, defendingTime); 
             break;
             }
@@ -136,6 +137,7 @@ public class BrawlController : MonoBehaviour
                 attackingPlayer.health -= defendingAmount;
                 //but they still take all the damage themselves
                 defendingPlayer.health -= attackingAmount;
+                
                 break;
             } 
             default: {

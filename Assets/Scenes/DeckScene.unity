@@ -490,6 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardObjects: []
   currentHand: []
+  enemyHand: []
   attackCardsAMT: 0
   blockCardsaMT: 0
   potionCardsaMT: 0
