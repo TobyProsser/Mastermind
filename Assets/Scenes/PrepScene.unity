@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1555369851525973801, guid: 6e4106af23cff6046b177dfb90cab375, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.73
+      value: 1.104
       objectReference: {fileID: 0}
     - target: {fileID: 1555369851525973801, guid: 6e4106af23cff6046b177dfb90cab375, type: 3}
       propertyPath: m_LocalRotation.w
@@ -639,6 +639,7 @@ MonoBehaviour:
   topPos: {fileID: 757515319}
   bottomPos: {fileID: 278388382}
   baseCard: {fileID: 3894119155205405655, guid: 98bf645e0a491cd479a9cd05faf25dc0, type: 3}
+  cardToTopSpeed: 0.4
 --- !u!114 &508617174
 MonoBehaviour:
   m_ObjectHideFlags: 0

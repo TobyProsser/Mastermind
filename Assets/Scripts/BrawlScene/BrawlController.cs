@@ -35,19 +35,24 @@ public class BrawlController : MonoBehaviour
         CardObject curCard = player1Moves[stepNum];
         //player1Text.text = curCard.cardName;
         playerCard.GetComponent<SpriteRenderer> ().sprite = curCard.cardIcon;
+        
 
         string type1 = curCard.cardType.ToString();
         string subType1 = curCard.subType.ToString();
         float amount1 = curCard.typeAmount;
         int time1 = curCard.time;
+        print("Animation: " + type1);
+        playerCard.GetComponent<Animator>().SetTrigger(type1);
 
-        string type2 = player2Moves[stepNum].cardType;
+        CardObject curCard2 = player2Moves[stepNum];
+        string type2 = curCard2.cardType;
         //player2Text.text = curCard.cardName;
-        enemyCard.GetComponent<SpriteRenderer> ().sprite = curCard.cardIcon;
+        enemyCard.GetComponent<SpriteRenderer> ().sprite = curCard2.cardIcon;
+        enemyCard.GetComponent<Animator>().SetTrigger(type2);
 
-        string subType2 = player2Moves[stepNum].subType;
-        float amount2 = player2Moves[stepNum].typeAmount;
-        int time2 = player2Moves[stepNum].time;
+        string subType2 = curCard2.subType;
+        float amount2 = curCard2.typeAmount;
+        int time2 = curCard2.time;
 
         if(time1 < time2){
             //Player1 moves first
@@ -65,7 +70,7 @@ public class BrawlController : MonoBehaviour
     }
 
     IEnumerator StepWait(){
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         Step();
     }
 
