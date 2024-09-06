@@ -8,9 +8,34 @@ public class JoystickPlayerExample : MonoBehaviour
     public VariableJoystick variableJoystick;
     public Rigidbody rb;
 
+    public float maxXValues;
+    public float maxTop;
+    public float maxBottom;
+
     public void FixedUpdate()
     {
         Vector3 direction = Vector3.up * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
+        if(Mathf.Abs(this.transform.localPosition.x) > maxXValues){
+            //print("Direction x, y: " + direction.x + ", " + direction.y);
+            if(direction.x < 0 && this.transform.localPosition.x < -maxXValues){
+                //print("Min X reached: " + this.transform.localPosition.x);
+                return;
+            }else if(direction.x > 0 && this.transform.localPosition.x > maxXValues){
+                //print("Max X reached: " + this.transform.localPosition.x);
+                return;
+            }
+        }
+
+        if(this.transform.localPosition.y > maxTop || this.transform.localPosition.y < maxBottom){
+            if(direction.y < 0 && this.transform.localPosition.y < maxBottom){
+
+               // print("Min Y reached: " + this.transform.localPosition.y);                
+                return;
+            }else if(direction.y > 0 && this.transform.localPosition.y > maxTop){
+               // print("Max Y reached: " + this.transform.localPosition.y);
+                return;
+            }
+        }
         rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
 }

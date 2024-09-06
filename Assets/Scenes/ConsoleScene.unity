@@ -724,6 +724,7 @@ GameObject:
   - component: {fileID: 462186308}
   - component: {fileID: 462186310}
   - component: {fileID: 462186309}
+  - component: {fileID: 462186311}
   m_Layer: 5
   m_Name: HomeLand
   m_TagString: Untagged
@@ -740,7 +741,7 @@ RectTransform:
   m_GameObject: {fileID: 462186307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9192, y: 1.9192, z: 1.9192}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1896138109}
@@ -788,6 +789,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462186307}
   m_CullTransparentMesh: 1
+--- !u!114 &462186311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462186307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60558ef8418bb474d8d96b061f6e6072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1559134827}
+  mapMoveSpeed: 0.32
 --- !u!1 &508617171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1590,9 @@ MonoBehaviour:
   speed: 1.6
   variableJoystick: {fileID: 1161106333}
   rb: {fileID: 1559134831}
+  maxXValues: 350
+  maxTop: 850
+  maxBottom: -300
 --- !u!1 &1629986471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1706,7 @@ GameObject:
   - component: {fileID: 1896138109}
   - component: {fileID: 1896138111}
   - component: {fileID: 1896138110}
+  - component: {fileID: 1896138112}
   m_Layer: 5
   m_Name: Screen
   m_TagString: Untagged
@@ -1754,6 +1773,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896138108}
   m_CullTransparentMesh: 1
+--- !u!114 &1896138112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896138108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 65, y: 800, z: 65, w: 175}
+  m_Softness: {x: 60, y: 60}
 --- !u!1 &1912956867
 GameObject:
   m_ObjectHideFlags: 0
