@@ -442,6 +442,8 @@ MonoBehaviour:
   player2Text: {fileID: 0}
   player1HealthText: {fileID: 73433886}
   player2HealthText: {fileID: 1075395454}
+  particles:
+  - {fileID: 4555267431656020626, guid: 6ce61cf9083883a459f46d1c4937feb4, type: 3}
 --- !u!1 &509795757
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +995,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2554517720663399183, guid: 98bf645e0a491cd479a9cd05faf25dc0, type: 3}
+    - {fileID: 8562209791517270089, guid: 98bf645e0a491cd479a9cd05faf25dc0, type: 3}
+    - {fileID: 8517647993757265513, guid: 98bf645e0a491cd479a9cd05faf25dc0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

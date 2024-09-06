@@ -4,6 +4,8 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using Unity.Mathematics;
 
 public class BrawlController : MonoBehaviour
 {
@@ -19,6 +21,8 @@ public class BrawlController : MonoBehaviour
 
     public TextMeshProUGUI player1HealthText;
     public TextMeshProUGUI player2HealthText;
+
+    public List<GameObject> particles;
     int stepNum= 0;
     // Start is called before the first frame update
     void Start()
@@ -42,17 +46,19 @@ public class BrawlController : MonoBehaviour
         float amount1 = curCard.typeAmount;
         int time1 = curCard.time;
         print("Animation: " + type1);
-        playerCard.GetComponent<Animator>().SetTrigger(type1);
+        StartCoroutine(HoldAnimation(player1, time1, type1));
 
         CardObject curCard2 = player2Moves[stepNum];
         string type2 = curCard2.cardType;
         //player2Text.text = curCard.cardName;
         enemyCard.GetComponent<SpriteRenderer> ().sprite = curCard2.cardIcon;
-        enemyCard.GetComponent<Animator>().SetTrigger(type2);
-
+        
         string subType2 = curCard2.subType;
         float amount2 = curCard2.typeAmount;
         int time2 = curCard2.time;
+
+        StartCoroutine(HoldAnimation(null, time2, type2));
+
 
         if(time1 < time2){
             //Player1 moves first
@@ -69,9 +75,30 @@ public class BrawlController : MonoBehaviour
         StartCoroutine(StepWait());
     }
 
+    IEnumerator HoldAnimation(Player player, float time, string type){
+        yield return new WaitForSeconds(time);
+
+        if(player == player1){
+            GameObject curParticles = Instantiate(particles[0], playerCard.transform.position, quaternion.identity);
+            curParticles.transform.Rotate(new Vector3(90, 0,0));
+            curParticles.transform.parent = playerCard.transform;
+            curParticles.transform.localPosition = new Vector3(0, 0, 0);
+            curParticles.transform.localScale=new Vector3(.5f, .5f,.5f);
+            playerCard.GetComponent<Animator>().SetTrigger(type);
+        }else{
+            enemyCard.GetComponent<Animator>().SetTrigger(type);
+        }
+    }
     IEnumerator StepWait(){
-        yield return new WaitForSeconds(5);
-        Step();
+        yield return new WaitForSeconds(2.5f);
+        if(stepNum < 5)
+        {
+            Step();
+        }
+        else{
+            yield return new WaitForSeconds(2.5f);
+            SceneManager.LoadScene("PrepScene");
+        }
     }
 
     void DetectOutcome(Player attackingPlayer, string attackingType, string attackingSubType, int attackingTime, float attackingAmount, Player defendingPlayer, string defendingType,string defendingSubType, float defendingAmount, int defendingTime)
