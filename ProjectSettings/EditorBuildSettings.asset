@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BrawlScene.unity
     guid: f1192957065c49948957fdb5f19c244b
+  - enabled: 1
+    path: Assets/Scenes/ConsoleScene.unity
+    guid: 025cc1f40c3b4044aab078a008937eb2
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: d4f2a383d34054f488859421b27a0806, type: 2}

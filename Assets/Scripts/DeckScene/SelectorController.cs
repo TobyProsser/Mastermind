@@ -47,4 +47,8 @@ public class SelectorController : MonoBehaviour
         DeckSingleton.Instance.cardObjects.Add(cardObject);
         counter.UpdateText();
     }
+
+    public void BackButton(){
+        SceneManager.LoadScene("ConsoleScene");
+    }
 }

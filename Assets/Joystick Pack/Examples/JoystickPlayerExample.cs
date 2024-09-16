@@ -36,6 +36,6 @@ public class JoystickPlayerExample : MonoBehaviour
                 return;
             }
         }
-        rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        rb.AddForce(-direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
 }
