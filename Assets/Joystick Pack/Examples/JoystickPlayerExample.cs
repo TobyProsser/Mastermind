@@ -12,6 +12,8 @@ public class JoystickPlayerExample : MonoBehaviour
     public float maxTop;
     public float maxBottom;
 
+    public Transform player;
+
     public void FixedUpdate()
     {
         Vector3 direction = Vector3.up * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
@@ -37,5 +39,11 @@ public class JoystickPlayerExample : MonoBehaviour
             }
         }
         rb.AddForce(-direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+
+        // Rotate the player in the direction of movement
+        if (direction != Vector3.zero)
+        {
+            player.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+        }
     }
 }

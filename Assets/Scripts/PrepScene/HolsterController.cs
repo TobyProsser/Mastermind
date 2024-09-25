@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HolsterController : MonoBehaviour
@@ -54,7 +55,6 @@ public class HolsterController : MonoBehaviour
     private void HandleLights()
     {
         int time = curCard.GetComponent<CardController>().time;
-        print("Time on card: " + time);
         for(int i = 0; i < 3; i++) {
             lights[i].SetActive(time == i);
         }
@@ -86,6 +86,8 @@ public class HolsterController : MonoBehaviour
         }
     }
 
+    
+
     IEnumerator CheckForMouseUp(DragAndDrop dragAndDrop)
     {
         while(true){
@@ -99,17 +101,18 @@ public class HolsterController : MonoBehaviour
 
     IEnumerator MoveAndResizeObject(Vector3 target, float initialSize, float finalSize)
 {
-    Vector3 startPosition = curCard.transform.position;
+    Vector3 startPosition = curCard.transform.localPosition;
     initialSize = curCard.transform.localScale.x;
     Vector3 targetYPosition = new Vector3(startPosition.x, target.y, startPosition.z);
     float distanceY = Mathf.Abs(target.y - startPosition.y);
     float initialDistanceY = distanceY;
-
+    print("Target Pos: " + targetYPosition + " Current Pos: " + curCard.transform.localPosition);
     // Move on the Y axis and resize
     while (distanceY > 0.01f)
     {
-        curCard.transform.position = Vector3.MoveTowards(curCard.transform.position, targetYPosition, speed * Time.deltaTime);
-        distanceY = Mathf.Abs(target.y - curCard.transform.position.y);
+        curCard.transform.localPosition = Vector3.MoveTowards(curCard.transform.localPosition, targetYPosition, speed * Time.deltaTime);
+        
+        distanceY = Mathf.Abs(target.y - curCard.transform.localPosition.y);
 
         float sizeFactor = 1 - (distanceY / initialDistanceY);
         float newSize = Mathf.Lerp(initialSize, finalSize, sizeFactor);
@@ -118,22 +121,22 @@ public class HolsterController : MonoBehaviour
         yield return null;
     }
 
-    curCard.transform.position = targetYPosition; // Ensure the object reaches the exact target Y position
+    curCard.transform.localPosition = targetYPosition; // Ensure the object reaches the exact target Y position
     if(!keepSize) { curCard.transform.localScale = new Vector3(finalSize, finalSize, finalSize); }// Ensure the object reaches the exact final size
 
     // Move on the X axis
     Vector3 targetXPosition = new Vector3(target.x, target.y, target.z);
-    float distanceX = Mathf.Abs(target.x - curCard.transform.position.x);
+    float distanceX = Mathf.Abs(target.x - curCard.transform.localPosition.x);
 
     while (distanceX > 0.01f)
     {
-        curCard.transform.position = Vector3.MoveTowards(curCard.transform.position, targetXPosition, speed * Time.deltaTime);
-        distanceX = Mathf.Abs(target.x - curCard.transform.position.x);
+        curCard.transform.localPosition = Vector3.MoveTowards(curCard.transform.localPosition, targetXPosition, speed * Time.deltaTime);
+        distanceX = Mathf.Abs(target.x - curCard.transform.localPosition.x);
 
         yield return null;
     }
 
-    curCard.transform.position = targetXPosition; // Ensure the object reaches the exact target X position
+    curCard.transform.localPosition = targetXPosition; // Ensure the object reaches the exact target X position
 }
 
 }

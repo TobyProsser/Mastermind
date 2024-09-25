@@ -924,7 +924,6 @@ GameObject:
   - component: {fileID: 462186308}
   - component: {fileID: 462186310}
   - component: {fileID: 462186309}
-  - component: {fileID: 462186311}
   - component: {fileID: 462186313}
   - component: {fileID: 462186312}
   m_Layer: 5
@@ -993,26 +992,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462186307}
   m_CullTransparentMesh: 1
---- !u!114 &462186311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462186307}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60558ef8418bb474d8d96b061f6e6072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1559134827}
-  startMovingHorizontal: 100
-  startMovingTop: 550
-  startMovingBottom: -50
-  mapMoveSpeed: 0.42
-  maxHorizontal: 260
-  maxHeight: 737
-  maxBottom: -117
 --- !u!54 &462186312
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1058,6 +1037,7 @@ MonoBehaviour:
   maxXValues: 350
   maxTop: 850
   maxBottom: -350
+  player: {fileID: 1818747707}
 --- !u!1 &508617171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,54 +1484,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardObjects:
   - cardName: Knife
+    animTime: 1.29
     cardType: Attack
     subType: Light
     typeAmount: 2
     time: 0
     cardIcon: {fileID: 21300000, guid: 534c9aa79466c0547897547dd1b778e7, type: 3}
   - cardName: Sword
+    animTime: 1.29
     cardType: Attack
     subType: Normal
     typeAmount: 5
     time: 1
     cardIcon: {fileID: 21300000, guid: 219171be80642914dadb70ae0ba9a767, type: 3}
   - cardName: Axe
+    animTime: 1.29
     cardType: Attack
     subType: Heavy
     typeAmount: 8
     time: 2
     cardIcon: {fileID: 21300000, guid: f571566b85c6bfb4faa6a1e056ad36db, type: 3}
   - cardName: Wooden Shield
+    animTime: 1.27
     cardType: Block
     subType: Light
     typeAmount: 3
     time: 0
     cardIcon: {fileID: 21300000, guid: b448a03dd68ca8b49a809a2ee7b25c89, type: 3}
   - cardName: Potion Shield
+    animTime: 1.27
     cardType: Block
     subType: Potion
     typeAmount: 10
     time: 1
     cardIcon: {fileID: 21300000, guid: b448a03dd68ca8b49a809a2ee7b25c89, type: 3}
   - cardName: Iron Shield
+    animTime: 1.27
     cardType: Block
     subType: Heavy
     typeAmount: 8
     time: 2
     cardIcon: {fileID: 21300000, guid: f1f37306c7a80f34387684f39dee1697, type: 3}
   - cardName: Healing Syrip
+    animTime: 1
     cardType: Potion
     subType: Heal
     typeAmount: 8
     time: 1
     cardIcon: {fileID: 21300000, guid: fa2df0bc66979d24fac5bbbc8ce72ffa, type: 3}
   - cardName: Armor Sap
+    animTime: 1
     cardType: Potion
     subType: Harden
     typeAmount: 5
     time: 1
     cardIcon: {fileID: 21300000, guid: 44a851c9fc03c4b42b3506d0b21f892c, type: 3}
   - cardName: Speed Sip
+    animTime: 1
     cardType: Potion
     subType: Speed
     typeAmount: 0
@@ -2111,7 +2100,6 @@ GameObject:
   - component: {fileID: 1559134830}
   - component: {fileID: 1559134829}
   - component: {fileID: 1559134835}
-  - component: {fileID: 1559134832}
   - component: {fileID: 1559134831}
   - component: {fileID: 1559134833}
   - component: {fileID: 1559134834}
@@ -2136,6 +2124,7 @@ RectTransform:
   m_Children:
   - {fileID: 1063491459}
   - {fileID: 942688170}
+  - {fileID: 1818747707}
   m_Father: {fileID: 1896138109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2150,7 +2139,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559134827}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2208,24 +2197,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1559134832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559134827}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37d705c8e9115e439ec799186182634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.6
-  variableJoystick: {fileID: 1161106333}
-  rb: {fileID: 1559134831}
-  maxXValues: 350
-  maxTop: 850
-  maxBottom: -350
 --- !u!65 &1559134833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2475,6 +2446,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1818747706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818747707}
+  - component: {fileID: 1818747709}
+  - component: {fileID: 1818747708}
+  m_Layer: 5
+  m_Name: PlayerVisual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1818747707
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818747706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1559134828}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1818747708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818747706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 534c9aa79466c0547897547dd1b778e7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1818747709
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818747706}
+  m_CullTransparentMesh: 1
 --- !u!1 &1896138108
 GameObject:
   m_ObjectHideFlags: 0

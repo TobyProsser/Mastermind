@@ -7,6 +7,8 @@ public class CardObject
 {   [SerializeField]
     public string cardName;
     [SerializeField]
+    public double animTime;
+    [SerializeField]
     public string cardType; //Damage, Block, Heal, Dodge, Prep, Disrupt
     [SerializeField]
     public string subType; //Ranged, Close, Area

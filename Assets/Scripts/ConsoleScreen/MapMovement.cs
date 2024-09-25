@@ -25,8 +25,8 @@ public class MapMovement : MonoBehaviour
     {
         if(player.transform.localPosition.x > startMovingHorizontal && this.transform.localPosition.x > -maxHorizontal)
         {
-            print("player X difference: " + (player.transform.localPosition.x - startMovingHorizontal));
-            print(this.transform.localPosition);
+            //print("player X difference: " + (player.transform.localPosition.x - startMovingHorizontal));
+            //print(this.transform.localPosition);
             this.transform.localPosition = new Vector3(this.transform.localPosition.x - mapMoveSpeed, this.transform.localPosition.y ,this.transform.localPosition.z);
         }
         else if (player.transform.localPosition.x < -startMovingHorizontal && this.transform.localPosition.x < maxHorizontal){

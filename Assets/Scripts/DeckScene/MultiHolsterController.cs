@@ -41,7 +41,7 @@ public class MultiHolsterController : MonoBehaviour
     private void MultiHandleLights(int curInt)
     {
         int time = cards[curInt].GetComponent<CardController>().time;
-        print("Time on card: " + time);
+        //print("Time on card: " + time);
         for(int i = 0; i < 3; i++) {
             thisLights[i].SetActive(time == i);
         }

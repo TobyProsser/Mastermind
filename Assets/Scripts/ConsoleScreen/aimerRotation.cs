@@ -50,7 +50,7 @@ public class AimerRotation : MonoBehaviour
             targetRotationZ = angleToEnemy - 179f;
             targetImageToRotate.localEulerAngles = new Vector3(0, 0, angleToEnemy);
             imageToRotate.localEulerAngles =  new Vector3(0, 0, angleToEnemy);
-            print("angle to enewmt " + angleToEnemy + " TargetRotation " + targetRotationZ);
+            //print("angle to enewmt " + angleToEnemy + " TargetRotation " + targetRotationZ);
         }
     }
 

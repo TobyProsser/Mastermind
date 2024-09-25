@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class DeckSingleton : MonoBehaviour
 {
     public static DeckSingleton Instance { get; set; }
+
+    public Player player;
     public List<CardObject> cardObjects;
     public List<CardObject> currentHand;
     public List<CardObject> enemyHand = new List<CardObject>();
@@ -30,6 +32,9 @@ public class DeckSingleton : MonoBehaviour
 
     void Start()
     {
+        //Change this to store and save player data, not creating new one every login
+    
+        player = new Player();
         NewEnemyHand();
     }
     
@@ -40,14 +45,6 @@ public class DeckSingleton : MonoBehaviour
             enemyHand.Add(CardManager.Instance.cardObjects[random]);
         }
     }
-
-    public void AddCard(CardObject card)
-    {
-        List<CardObject> cardList = new List<CardObject>(cardObjects);
-        cardList.Add(card);
-        cardObjects = cardList;
-    }
-
     public void FindTypes()
     {
         blockCardsaMT = 0;

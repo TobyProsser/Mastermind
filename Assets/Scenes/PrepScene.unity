@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalfHolster (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4606565668672962017, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 508617175}
     - target: {fileID: 7696564016888534614, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.69
@@ -575,6 +579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalfHolster (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4606565668672962017, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 508617175}
     - target: {fileID: 7696564016888534614, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.69
@@ -648,6 +656,7 @@ MonoBehaviour:
   topPos: {fileID: 757515319}
   bottomPos: {fileID: 278388382}
   baseCard: {fileID: 3894119155205405655, guid: 98bf645e0a491cd479a9cd05faf25dc0, type: 3}
+  counter: {fileID: 508617175}
   cardToTopSpeed: 2
 --- !u!114 &508617174
 MonoBehaviour:
@@ -817,6 +826,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4606565668672962017, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 508617175}
     - target: {fileID: 6763548101501326972, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1667,6 +1680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalfHolster (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4606565668672962017, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 508617175}
     - target: {fileID: 7696564016888534614, guid: 06fe845502ca00e4eb105769d51be777, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.69
@@ -1932,6 +1949,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1557187158}
     m_Modifications:
+    - target: {fileID: 828968677309259016, guid: f31c05ea6fdeed24ba3a9087f0390e1a, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 508617175}
     - target: {fileID: 1280770263216099460, guid: f31c05ea6fdeed24ba3a9087f0390e1a, type: 3}
       propertyPath: m_Size.x
       value: 3.2513957

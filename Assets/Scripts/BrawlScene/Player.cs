@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player
-{
-    public string name;
-    public float health = 100;
+{    public string name;
+    public float health = 20;
 }

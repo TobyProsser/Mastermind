@@ -11,7 +11,7 @@ public class HandCollection : MonoBehaviour
         List<CardObject> playerHand = new List<CardObject>();
         foreach(GameObject holster in holsters){
             HolsterController controller = holster.GetComponent<HolsterController>();
-            if(controller != null){
+            if(controller != null && controller.curCard != null){
                 CardObject cardObject = controller.curCard.GetComponent<CardController>().thisCardsObject;
                 playerHand.Add(cardObject);
             }

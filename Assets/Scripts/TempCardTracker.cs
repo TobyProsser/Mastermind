@@ -5,8 +5,10 @@ using UnityEngine;
 public class TempCardTracker : MonoBehaviour
 {
     public CardProvider cardProvider;
+    public bool locked = false;
     public void CardLocked()
     {
-        cardProvider.SpawnCard();
+        locked = true;
+        cardProvider.SpawnCard(false);
     }
 }

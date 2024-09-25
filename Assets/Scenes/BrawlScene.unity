@@ -438,10 +438,10 @@ MonoBehaviour:
   enemyCard: {fileID: 1376585752}
   player1Moves: []
   player2Moves: []
-  player1Text: {fileID: 0}
+  player1Text: {fileID: 1075395454}
   player2Text: {fileID: 0}
-  player1HealthText: {fileID: 73433886}
-  player2HealthText: {fileID: 1075395454}
+  player1HealthText: {fileID: 1075395454}
+  player2HealthText: {fileID: 73433886}
   particles:
   - {fileID: 4555267431656020626, guid: 6ce61cf9083883a459f46d1c4937feb4, type: 3}
 --- !u!1 &509795757
@@ -691,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028405103}
   m_Layer: 5
-  m_Name: PlayerHealth
+  m_Name: EnemyHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -862,7 +862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1108053038}
   m_Layer: 5
-  m_Name: EnemyHealth
+  m_Name: PlayerHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

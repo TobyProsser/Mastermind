@@ -42,7 +42,7 @@ public class SelectorController : MonoBehaviour
         curCard.transform.localScale = new Vector3(.075f,.075f,.075f);
         curCard.GetComponent<Rigidbody2D>().gravityScale = .83f;
         curCard.GetComponent<CardController>().time = iconButtonNum;
-        print("Time set as: " + iconButtonNum);
+        //print("Time set as: " + iconButtonNum);
         CardObject cardObject = cardManager.cardObjects[curIcons + iconButtonNum];
         DeckSingleton.Instance.cardObjects.Add(cardObject);
         counter.UpdateText();
