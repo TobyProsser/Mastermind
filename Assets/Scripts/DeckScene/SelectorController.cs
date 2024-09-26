@@ -23,7 +23,7 @@ public class SelectorController : MonoBehaviour
     }
 
     public void NextButton(){
-        SceneManager.LoadScene("PrepScene");
+        SceneManager.LoadScene("ConsoleScene");
     }
     public void SpawnCards(int iconButtonNum)
     {
@@ -49,6 +49,6 @@ public class SelectorController : MonoBehaviour
     }
 
     public void BackButton(){
-        SceneManager.LoadScene("ConsoleScene");
+        SceneManager.LoadScene("PrepScene");
     }
 }

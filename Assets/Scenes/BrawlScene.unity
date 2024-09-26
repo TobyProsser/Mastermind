@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 73433887}
   - component: {fileID: 73433886}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: PlayerHealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506148968}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,14 +434,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89273cd2932b3934392bc728ba2b9c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCard: {fileID: 2107654923}
-  enemyCard: {fileID: 1376585752}
+  playerCard: {fileID: 1376585752}
+  enemyCard: {fileID: 2107654923}
   player1Moves: []
   player2Moves: []
-  player1Text: {fileID: 1075395454}
-  player2Text: {fileID: 0}
-  player1HealthText: {fileID: 1075395454}
-  player2HealthText: {fileID: 73433886}
+  player1Text: {fileID: 73433886}
+  player2Text: {fileID: 1075395454}
+  player1HealthText: {fileID: 73433886}
+  player2HealthText: {fileID: 1075395454}
   particles:
   - {fileID: 4555267431656020626, guid: 6ce61cf9083883a459f46d1c4937feb4, type: 3}
 --- !u!1 &509795757
@@ -691,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028405103}
   m_Layer: 5
-  m_Name: EnemyHealth
+  m_Name: PlayerHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 1075395455}
   - component: {fileID: 1075395454}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: EnemyHealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -862,7 +862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1108053038}
   m_Layer: 5
-  m_Name: PlayerHealth
+  m_Name: EnemyHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

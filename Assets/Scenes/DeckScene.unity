@@ -1004,6 +1004,7 @@ MonoBehaviour:
   attackText: {fileID: 335187088}
   blockText: {fileID: 335187086}
   potionText: {fileID: 335187087}
+  healthText: {fileID: 0}
 --- !u!1 &509795757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,54 +1201,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardObjects:
   - cardName: Knife
+    animTime: 0
     cardType: Attack
     subType: Light
     typeAmount: 2
     time: 0
     cardIcon: {fileID: 21300000, guid: 534c9aa79466c0547897547dd1b778e7, type: 3}
   - cardName: Sword
+    animTime: 0
     cardType: Attack
     subType: Normal
     typeAmount: 5
     time: 1
     cardIcon: {fileID: 21300000, guid: 219171be80642914dadb70ae0ba9a767, type: 3}
   - cardName: Axe
+    animTime: 0
     cardType: Attack
     subType: Heavy
     typeAmount: 8
     time: 2
     cardIcon: {fileID: 21300000, guid: f571566b85c6bfb4faa6a1e056ad36db, type: 3}
   - cardName: Wooden Shield
+    animTime: 0
     cardType: Block
     subType: Light
     typeAmount: 3
     time: 0
     cardIcon: {fileID: 21300000, guid: b448a03dd68ca8b49a809a2ee7b25c89, type: 3}
   - cardName: Potion Shield
+    animTime: 0
     cardType: Block
     subType: Potion
     typeAmount: 10
     time: 1
     cardIcon: {fileID: 21300000, guid: b448a03dd68ca8b49a809a2ee7b25c89, type: 3}
   - cardName: Iron Shield
+    animTime: 0
     cardType: Block
     subType: Heavy
     typeAmount: 8
     time: 2
     cardIcon: {fileID: 21300000, guid: f1f37306c7a80f34387684f39dee1697, type: 3}
   - cardName: Healing Syrip
+    animTime: 0
     cardType: Potion
     subType: Heal
     typeAmount: 8
     time: 1
     cardIcon: {fileID: 21300000, guid: fa2df0bc66979d24fac5bbbc8ce72ffa, type: 3}
   - cardName: Armor Sap
+    animTime: 0
     cardType: Potion
     subType: Harden
     typeAmount: 5
     time: 1
     cardIcon: {fileID: 21300000, guid: 44a851c9fc03c4b42b3506d0b21f892c, type: 3}
   - cardName: Speed Sip
+    animTime: 0
     cardType: Potion
     subType: Speed
     typeAmount: 0
@@ -2486,7 +2496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Test Prep
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3173,7 +3183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prep
+  m_text: Leave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

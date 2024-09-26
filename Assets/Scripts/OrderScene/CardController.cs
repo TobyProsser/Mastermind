@@ -20,10 +20,5 @@ public class CardController : MonoBehaviour
     public enum TimeOption {instant, normal, delayed}
     [SerializeField] public int time;
     
-
-    void Awake()
-    {
-        text.text = cardName;
-    }
     
 }

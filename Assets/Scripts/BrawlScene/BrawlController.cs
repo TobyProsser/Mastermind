@@ -24,6 +24,10 @@ public class BrawlController : MonoBehaviour
 
     public List<GameObject> particles;
     int stepNum= 0;
+
+    int armored = 0;
+
+    Player playerHasSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,15 @@ public class BrawlController : MonoBehaviour
     }
 
     void Step(){
+
+        if(player2.health <= 0)
+        {
+            SceneManager.LoadScene("ConsoleScene");
+            return;
+        }else if(armored > 0)
+        {
+            armored--;
+        }
         CardObject curCard = player1Moves[stepNum];
         //player1Text.text = curCard.cardName;
         playerCard.GetComponent<SpriteRenderer> ().sprite = curCard.cardIcon;
@@ -59,8 +72,18 @@ public class BrawlController : MonoBehaviour
         int time2 = curCard2.time;
         double enemyAnimTime = curCard2.animTime;
         
-        DetectOutcome(player1, type1,subType1, time1, amount1, player2, type2, subType2, amount2, time2);
-        
+        //Whoever moves first is the attacking player
+        if(time1 < time2){
+            //Player1 moves first
+            DetectOutcome(player1, type1,subType1, time1, amount1, player2, type2, subType2, amount2, time2);
+        }else if(time1 > time2){
+            //Player2 moves first
+            DetectOutcome(player2, type2, subType2, time2, amount2, player1, type1,subType1, amount1, time1);
+        }
+        else{
+            DetectOutcome(player1, type1,subType1, time1, amount1, player2, type2, subType2, amount2, time2);
+        }
+
         StartCoroutine(PlayAnimations(time1, type1, playerAnimTime, time2, type2, enemyAnimTime));
 
     }
@@ -142,10 +165,90 @@ public class BrawlController : MonoBehaviour
             break;
             }
             case "Dodge": break;    //If player dodges nothing happens (until area attacks are included)
-            case "Potion": break;
+            case "Potion": {
+                HandlePotion(attackingPlayer, defendingPlayer, attackingSubType, attackingAmount, attackingTime, defendingType, defendingAmount, defendingTime, defendingSubType);
+                break;
+            }
         }
     }
 
+    void ThrowPotion(Player thrownBy, bool potionBlocked, string potionSubType, float potionAmount)
+    {
+        if(!potionBlocked)
+        {
+            print("potion sub Type: " + potionSubType);
+            switch(potionSubType)
+        {
+            case "Heal": {
+                PlayerGiveHealth(thrownBy, potionAmount);
+                break;
+            }
+            case "Harden": {
+                armored = 2;
+                break;
+            }
+            case "Speed": {
+                playerHasSpeed = thrownBy;
+                break;
+            }
+        }
+        }
+    }
+
+    void PlayerGiveHealth(Player player, float amount)
+    {
+        if(armored <= 0)
+        {
+            if(player == player1)
+            {
+                print("player health: " + player1.health + " + " + amount);
+                player1.health += amount;
+            }else{player2.health += amount;}
+            
+        }else{
+            //Particles that show that armor potion blocked hit
+        }
+    }
+
+    void PlayerTakeDamage(Player player, float amount)
+    {
+        if(armored <= 0)
+        {
+            if(player == player1)
+            {
+                player1.health -= amount;
+            }else{player2.health -= amount;}
+            
+        }else{
+            //Particles that show that armor potion blocked hit
+        }
+    }
+    void HandlePotion(Player attackingPlayer, Player defendingPlayer, string attackingSubtype, float attackingAmount, int attackingTime, string defendingType, float defendingAmount, int defendingTime, string defendingSubtype)
+    {
+        bool potionBlocked = false;
+        
+        switch (defendingType){
+            //IF block is potion block null potions effects, else do nothing
+            case "Block": {
+                if(defendingSubtype == "Potion")
+                {
+                    potionBlocked = true;
+                }
+                break;
+                }
+            case "Dodge": break;    //IF defending player dodged do nothing
+            case "Attack": {
+                PlayerTakeDamage(attackingPlayer, defendingAmount);
+                break;
+            }
+            default: {
+                //If player does not attack back, do nothing
+                break;
+            }
+        }
+        print("Throw Potion");
+        ThrowPotion(attackingPlayer, potionBlocked, attackingSubtype, attackingAmount);
+    }
     void HandleBlock(Player attackingPlayer, Player defendingPlayer, float attackingAmount, int attackingTime, string defendingType, float defendingAmount, int defendingTime)
     {
         switch (defendingType){
@@ -158,15 +261,14 @@ public class BrawlController : MonoBehaviour
                 //Subract defenders damage attack from attackers block Amount
                 defendingAmount -= attackingAmount;
                 //Then Deal that damage, if damage is less then 0 deal 0 damage
-                defendingPlayer.health -= attackingAmount <= 0 ? 0 : attackingAmount;
-                
+                PlayerTakeDamage(attackingPlayer, defendingAmount <= 0 ? 0 : defendingAmount);
                 }
                 else{
                     //Else they take full damage
                     defendingAmount -= attackingAmount;
                 }
                 break;
-            } 
+            }
             default: {
                 //If player does not attack back, do nothing
                 break;
@@ -174,7 +276,9 @@ public class BrawlController : MonoBehaviour
         }
     }
     void DealDamage(Player attackingPlayer, Player defendingPlayer, float attackingAmount, int attackingTime, string defendingType, float defendingAmount, int defendingTime){
-        print("Damage to deal: " + attackingAmount + "Damage to take: " + defendingAmount);
+        
+        print("Damage to deal: " + attackingAmount + " Damage to take: " + defendingAmount);
+        print("attacking Health: " + attackingPlayer.health + " defending Health: " + defendingPlayer.health);
         switch (defendingType){
             case "Block": {
                 //if it takes longer to attack then to defend then some of the attacking amount is decreased
@@ -195,7 +299,7 @@ public class BrawlController : MonoBehaviour
             case "Dodge": break;    //IF defending player dodged deal no damage
             case "Attack": {
                 //If the defending player is also attacking then the attacker also takes damage as they are not blocking or dodging.
-                attackingPlayer.health -= defendingAmount;
+                PlayerTakeDamage(attackingPlayer ,defendingAmount);
                 //but they still take all the damage themselves
                 defendingPlayer.health -= attackingAmount;
                 
@@ -206,6 +310,9 @@ public class BrawlController : MonoBehaviour
                 defendingPlayer.health -= attackingAmount;
                 break;
             }
+            
         }
+
+        print("Player Health After: " + player1.health + " Enemy Health After: " + defendingPlayer.health);
     }
 }

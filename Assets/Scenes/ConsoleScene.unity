@@ -1085,6 +1085,7 @@ MonoBehaviour:
   attackText: {fileID: 0}
   blockText: {fileID: 0}
   potionText: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!1 &509795757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,21 +1530,21 @@ MonoBehaviour:
     animTime: 1
     cardType: Potion
     subType: Heal
-    typeAmount: 8
+    typeAmount: 5
     time: 1
     cardIcon: {fileID: 21300000, guid: fa2df0bc66979d24fac5bbbc8ce72ffa, type: 3}
   - cardName: Armor Sap
     animTime: 1
     cardType: Potion
     subType: Harden
-    typeAmount: 5
+    typeAmount: 2
     time: 1
     cardIcon: {fileID: 21300000, guid: 44a851c9fc03c4b42b3506d0b21f892c, type: 3}
   - cardName: Speed Sip
     animTime: 1
     cardType: Potion
     subType: Speed
-    typeAmount: 0
+    typeAmount: 1
     time: 0
     cardIcon: {fileID: 21300000, guid: 5d6e587da8504a34784925a111e0fd75, type: 3}
 --- !u!4 &1230029186
