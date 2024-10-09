@@ -9,6 +9,13 @@ public class DeckSingleton : MonoBehaviour
     public static DeckSingleton Instance { get; set; }
 
     public Player player;
+
+    public GameObject screenSceneToHide;
+
+    public float enemyHealth;
+    public string enemyName;
+    public GameObject enemy;
+
     public List<CardObject> cardObjects;
     public List<CardObject> currentHand;
     public List<CardObject> enemyHand = new List<CardObject>();
@@ -24,7 +31,7 @@ public class DeckSingleton : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }

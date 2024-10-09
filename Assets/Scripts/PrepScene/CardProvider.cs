@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardProvider : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class CardProvider : MonoBehaviour
 
     void SpawnInitCards(){
         SpawnCard(true);
+    }
+
+    public void Run(){
+        DeckSingleton.Instance.screenSceneToHide.SetActive(true);
+        SceneManager.UnloadSceneAsync("PrepScene");
     }
 
     public void SpawnCard(bool doubled){

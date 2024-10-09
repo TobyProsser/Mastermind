@@ -27,6 +27,7 @@ public class HandCollection : MonoBehaviour
     public void BrawlButton(){
         SubmitPlayersHand();
 
-        SceneManager.LoadScene("BrawlScene");
+        SceneManager.LoadScene("BrawlScene", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("PrepScene");
     }
 }

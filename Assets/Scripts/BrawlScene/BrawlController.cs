@@ -34,6 +34,8 @@ public class BrawlController : MonoBehaviour
         player1 = DeckSingleton.Instance.player;
         player2 = new Player();
 
+        player2.health = DeckSingleton.Instance.enemy.GetComponent<EnemyController>().health;
+
         player1Moves = DeckSingleton.Instance.currentHand;
         player2Moves = DeckSingleton.Instance.enemyHand;
         Step();
@@ -45,7 +47,10 @@ public class BrawlController : MonoBehaviour
 
         if(player2.health <= 0)
         {
-            SceneManager.LoadScene("ConsoleScene");
+            Destroy(DeckSingleton.Instance.enemy);
+            DeckSingleton.Instance.screenSceneToHide.SetActive(true);
+            SceneManager.UnloadSceneAsync("BrawlScene");
+
             return;
         }else if(armored > 0)
         {
@@ -148,10 +153,19 @@ public class BrawlController : MonoBehaviour
         }
         else{
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene("PrepScene");
+            if(player2.health <= 0)
+            {
+                Destroy(DeckSingleton.Instance.enemy);
+                DeckSingleton.Instance.screenSceneToHide.SetActive(true);
+                SceneManager.UnloadSceneAsync("BrawlScene");
+            }
+            else{
+                SceneManager.UnloadSceneAsync("BrawlScene");
+                SceneManager.LoadScene("PrepScene", LoadSceneMode.Additive);
+            }
+            
         }
     }
-
     void DetectOutcome(Player attackingPlayer, string attackingType, string attackingSubType, int attackingTime, float attackingAmount, Player defendingPlayer, string defendingType,string defendingSubType, float defendingAmount, int defendingTime)
     {
         //print("Attacking Type: " + attackingType + "DefendingType " + defendingType);
