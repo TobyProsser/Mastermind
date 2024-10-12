@@ -159,11 +159,11 @@ public class BrawlController : MonoBehaviour
             {
                 DeckSingleton.Instance.screenSceneToHide.SetActive(true);
                 DeckSingleton.Instance.enemy.GetComponent<EnemyController>().DropLoot();
-                Destroy(DeckSingleton.Instance.enemy);
-            
+                            
                 SceneManager.UnloadSceneAsync("BrawlScene");
             }
             else{
+                DeckSingleton.Instance.enemy.GetComponent<EnemyController>().health = player2.health;
                 SceneManager.UnloadSceneAsync("BrawlScene");
                 SceneManager.LoadScene("PrepScene", LoadSceneMode.Additive);
             }

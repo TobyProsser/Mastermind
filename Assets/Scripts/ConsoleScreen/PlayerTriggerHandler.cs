@@ -12,6 +12,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         {
             DeckSingleton.Instance.screenSceneToHide.SetActive(false);
             SceneManager.LoadScene("DeckScene", LoadSceneMode.Additive);
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         else if(other.gameObject.tag == "Collectable")
         {

@@ -28,7 +28,7 @@ public class SelectorController : MonoBehaviour
         foreach(var obj in spawnedCards) {
             Destroy(obj);
         }
-        
+
         DeckSingleton.Instance.Homeland.transform.localPosition = DeckSingleton.Instance.homelandSpawn;
         DeckSingleton.Instance.screenSceneToHide.SetActive(true);
         SceneManager.UnloadSceneAsync("DeckScene");

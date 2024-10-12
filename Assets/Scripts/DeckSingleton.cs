@@ -9,6 +9,7 @@ public class DeckSingleton : MonoBehaviour
     public static DeckSingleton Instance { get; set; }
 
     public Player player;
+    public GameObject playersGameObject;
     public GameObject screenSceneToHide;
     public GameObject Homeland;
     public GameObject consoleCamera;
