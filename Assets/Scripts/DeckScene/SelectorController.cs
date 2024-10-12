@@ -10,6 +10,7 @@ public class SelectorController : MonoBehaviour
 {
     public GameObject card;
     public GameObject[] screenCards;
+    public List<GameObject> spawnedCards = new List<GameObject>();
 
     public Transform[] spawnPoints;
 
@@ -23,7 +24,14 @@ public class SelectorController : MonoBehaviour
     }
 
     public void NextButton(){
-        SceneManager.LoadScene("ConsoleScene");
+
+        foreach(var obj in spawnedCards) {
+            Destroy(obj);
+        }
+        
+        DeckSingleton.Instance.Homeland.transform.localPosition = DeckSingleton.Instance.homelandSpawn;
+        DeckSingleton.Instance.screenSceneToHide.SetActive(true);
+        SceneManager.UnloadSceneAsync("DeckScene");
     }
     public void SpawnCards(int iconButtonNum)
     {
@@ -38,6 +46,7 @@ public class SelectorController : MonoBehaviour
 
     public void ScreenCardSelect(int iconButtonNum){
         GameObject curCard = Instantiate(card, spawnPoints[iconButtonNum].transform.position, screenCards[0].transform.rotation);
+        spawnedCards.Add(curCard);
         curCard.GetComponent<SpriteRenderer>().sprite = cardManager.cardObjects[curIcons + iconButtonNum].cardIcon;
         curCard.transform.localScale = new Vector3(.075f,.075f,.075f);
         curCard.GetComponent<Rigidbody2D>().gravityScale = .83f;

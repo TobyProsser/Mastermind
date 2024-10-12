@@ -14,6 +14,7 @@ public class JoystickPlayerExample : MonoBehaviour
     public float maxBottom;
 
     public Transform player;
+    public Rigidbody playerRB;
     bool dashing = false;
     float initSpeed;
 
@@ -24,9 +25,11 @@ public class JoystickPlayerExample : MonoBehaviour
             //print("Direction x, y: " + direction.x + ", " + direction.y);
             if(direction.x < 0 && this.transform.localPosition.x > maxX){
                 //print("Min X reached: " + this.transform.localPosition.x);
+                MovePlayer(direction);
                 return;
             }else if(direction.x > 0 && this.transform.localPosition.x < minX){
                 //print("Max X reached: " + this.transform.localPosition.x);
+                MovePlayer(direction);
                 return;
             }
         }
@@ -34,10 +37,12 @@ public class JoystickPlayerExample : MonoBehaviour
         if(this.transform.localPosition.y < maxTop || this.transform.localPosition.y > maxBottom){
             if(direction.y < 0 && this.transform.localPosition.y > maxBottom){
 
-               // print("Min Y reached: " + this.transform.localPosition.y);                
+               // print("Min Y reached: " + this.transform.localPosition.y);
+                MovePlayer(direction);
                 return;
             }else if(direction.y > 0 && this.transform.localPosition.y < maxTop){
                // print("Max Y reached: " + this.transform.localPosition.y);
+                MovePlayer(direction);
                 return;
             }
         }
@@ -49,6 +54,10 @@ public class JoystickPlayerExample : MonoBehaviour
         {
             player.rotation = Quaternion.LookRotation(Vector3.forward, direction);
         }
+    }
+
+    void MovePlayer(Vector3 direction){
+        playerRB.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
 
     public void OnDashButtonPressed(){

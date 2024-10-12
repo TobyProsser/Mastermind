@@ -47,8 +47,10 @@ public class BrawlController : MonoBehaviour
 
         if(player2.health <= 0)
         {
-            Destroy(DeckSingleton.Instance.enemy);
             DeckSingleton.Instance.screenSceneToHide.SetActive(true);
+            DeckSingleton.Instance.enemy.GetComponent<EnemyController>().DropLoot();
+            Destroy(DeckSingleton.Instance.enemy);
+            
             SceneManager.UnloadSceneAsync("BrawlScene");
 
             return;
@@ -155,8 +157,10 @@ public class BrawlController : MonoBehaviour
             yield return new WaitForSeconds(1f);
             if(player2.health <= 0)
             {
-                Destroy(DeckSingleton.Instance.enemy);
                 DeckSingleton.Instance.screenSceneToHide.SetActive(true);
+                DeckSingleton.Instance.enemy.GetComponent<EnemyController>().DropLoot();
+                Destroy(DeckSingleton.Instance.enemy);
+            
                 SceneManager.UnloadSceneAsync("BrawlScene");
             }
             else{

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Player
 {    public string name;
-    public float health;
+    public float health = 20;
 }

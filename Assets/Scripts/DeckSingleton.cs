@@ -9,9 +9,10 @@ public class DeckSingleton : MonoBehaviour
     public static DeckSingleton Instance { get; set; }
 
     public Player player;
-
     public GameObject screenSceneToHide;
-
+    public GameObject Homeland;
+    public GameObject consoleCamera;
+    public Vector3 homelandSpawn;
     public float enemyHealth;
     public string enemyName;
     public GameObject enemy;
@@ -43,6 +44,8 @@ public class DeckSingleton : MonoBehaviour
     
         player = new Player();
         NewEnemyHand();
+
+
     }
     
     private void NewEnemyHand()

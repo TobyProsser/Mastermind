@@ -7,6 +7,8 @@ public class HandCollection : MonoBehaviour
 {
     public GameObject[] holsters;
 
+    public CardProvider provider;
+
     List<CardObject> GetPlayersHand (){
         List<CardObject> playerHand = new List<CardObject>();
         foreach(GameObject holster in holsters){
@@ -25,6 +27,13 @@ public class HandCollection : MonoBehaviour
     }
 
     public void BrawlButton(){
+
+        List<GameObject> cards = provider.spawnedCards;
+
+        foreach(var obj in cards) {
+            Destroy(obj);
+        }
+        
         SubmitPlayersHand();
 
         SceneManager.LoadScene("BrawlScene", LoadSceneMode.Additive);

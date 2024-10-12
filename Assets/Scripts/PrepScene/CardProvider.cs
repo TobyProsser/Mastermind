@@ -11,18 +11,24 @@ public class CardProvider : MonoBehaviour
     public Transform bottomPos;
 
     public GameObject baseCard;
+    public Vector3 cardScale;
 
     public CardCounter counter;
 
     DeckSingleton deckSingleton;
 
     GameObject spawnedCard;
+    [HideInInspector]
+    public List<GameObject> spawnedCards;
 
     public float cardToTopSpeed = .4f;
 
     int currentCardNum;
+
+    public GameObject brawlButton;
     void Start()
     {
+        brawlButton.SetActive(false);
         currentCardNum = 0;
         deckSingleton = DeckSingleton.Instance;
 
@@ -50,13 +56,17 @@ public class CardProvider : MonoBehaviour
             if(deckSingleton.cardObjects.Count > 1){
                 SpawnBottomCard(doubled);
             }else if(deckSingleton.cardObjects.Count == 1)
-            { 
+            {
                 SpawnBottomCard(doubled);
                 StartCoroutine(MoveBottomToTop());
+            }
+            else{
+                brawlButton.SetActive(true);
             }
         }else if(currentCardNum == 5)
         {
             StartCoroutine(MoveBottomToTop());
+            brawlButton.SetActive(true);
         }
         
     }
@@ -96,6 +106,8 @@ GameObject topCard = spawnedCard;
     {
         GameObject curCard = Instantiate(baseCard, bottomPos.position, bottomPos.rotation);
             spawnedCard = curCard;
+            spawnedCards.Add(curCard);
+            curCard.transform.localScale = cardScale;
             print("Current Card Number: " + currentCardNum + "deck amount: " + deckSingleton.cardObjects.Count);
             curCard.GetComponent<SpriteRenderer>().sprite = deckSingleton.cardObjects[0].cardIcon;
             curCard.GetComponent<CardController>().thisCardsObject = deckSingleton.cardObjects[0];

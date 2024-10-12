@@ -75,6 +75,7 @@ public class AimerRotation : MonoBehaviour
                 
                 if(loadOnce == 0)
                 {
+                    
                     loadOnce++;
                     sceneToHide.SetActive(false);
                     print("LOAD SCENE");
