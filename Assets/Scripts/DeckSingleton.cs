@@ -22,6 +22,9 @@ public class DeckSingleton : MonoBehaviour
     public List<CardObject> currentHand;
     public List<CardObject> enemyHand = new List<CardObject>();
 
+    public int round;
+    public bool playerWon;
+
     public int attackCardsAMT;
     public int blockCardsaMT;
     public int potionCardsaMT;

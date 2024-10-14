@@ -66,6 +66,7 @@ public class MultiHolsterController : MonoBehaviour
     // Move on the Y axis and resize
     while (distanceY > 0.01f)
     {
+        if(!cards[cardNum]){break;}
         cards[cardNum].transform.position = Vector3.MoveTowards(cards[cardNum].transform.position, targetYPosition, mutliSpeed * Time.deltaTime);
         distanceY = Mathf.Abs(target.y - cards[cardNum].transform.position.y);
 
@@ -76,8 +77,9 @@ public class MultiHolsterController : MonoBehaviour
         yield return null;
     }
 
-    cards[cardNum].transform.position = targetYPosition; // Ensure the object reaches the exact target Y position
-    if(!multiKeepSize) { cards[cardNum].transform.localScale = new Vector3(finalSize, finalSize, finalSize); }// Ensure the object reaches the exact final size
+    if(cards[cardNum]){cards[cardNum].transform.position = targetYPosition; // Ensure the object reaches the exact target Y position
+    if(!multiKeepSize) { cards[cardNum].transform.localScale = new Vector3(finalSize, finalSize, finalSize); }// Ensure the object reaches the exact final size}
+    }
 
     // Move on the X axis
     Vector3 targetXPosition = new Vector3(target.x, target.y, target.z);
@@ -85,6 +87,7 @@ public class MultiHolsterController : MonoBehaviour
 
     while (distanceX > 0.01f)
     {
+        if(!cards[cardNum]){break;}
         cards[cardNum].transform.position = Vector3.MoveTowards(cards[cardNum].transform.position, targetXPosition, mutliSpeed * Time.deltaTime);
         distanceX = Mathf.Abs(target.x - cards[cardNum].transform.position.x);
 
